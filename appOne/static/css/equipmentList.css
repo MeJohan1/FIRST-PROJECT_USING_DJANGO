@@ -1,0 +1,126 @@
+/* equipmentList.css */
+
+.main-content {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding-top: 200px;
+}
+
+.header-actions {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-filter-sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.search-form,
+.filter-sort-form {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-sort-form {
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.search-button,
+.apply-button,
+.action-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.search-button:hover,
+.apply-button:hover,
+.action-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.filter-sort-form {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.equipment-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    overflow: auto;
+    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.equipment-item {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    width: calc((100% / 4) - 20px); /* Adjusted 4 items per line */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease; /* Added transition */
+    margin-left: 20px;
+
+}
+
+.equipment-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced box-shadow on hover */
+}
+
+.equipment-image img {
+    width: 100%;
+    display: block;
+}
+
+.equipment-details {
+    padding: 15px;
+    text-align: center;
+}
+
+.equipment-actions {
+    padding: 10px;
+    background: #f7f7f7;
+    text-align: center;
+    margin-top: auto;
+}
+
+.edit-button,
+.view-button {
+    background-color: #17a2b8;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease; /* Added transition */
+}
+
+.edit-button:hover,
+.view-button:hover {
+    background-color: #138496;
+}

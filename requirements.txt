@@ -1,0 +1,6 @@
+asgiref==3.7.2
+Django==4.2.3
+setuptools==68.2.2
+sqlparse @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/sqlparse_1699544474746/work
+tzdata @ file:///croot/python-tzdata_1690578112552/work
+wheel==0.41.2

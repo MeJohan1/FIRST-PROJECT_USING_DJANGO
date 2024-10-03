@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+<!-- Created by Saad -->
+{% include 'appOne/sidebar.html'%}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<link rel="stylesheet" href="{%  static 'css/equipment_form.css' %}">
+
+<div class="equipment-form-container">
+    <h2 class="form-title">{{ equipment.id|default:"Add" }} Equipment</h2>
+
+    <form method="post" enctype="multipart/form-data" class="equipment-form">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="field-container">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div class="error" style="color: red;">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div class="form-buttons">
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
+    </form>
+
+    {% if equipment %}
+    <form method="post" action="{% url 'equipment_delete' equipment_id=equipment.id %}" class="delete-form">
+        {% csrf_token %}
+        <input type="hidden" name="equipment_id" value="{{ equipment.id }}">
+        <button type="submit" class="delete-btn">Delete</button>
+    </form>
+    {% endif %}
+</div>
+
+{% endblock content %}

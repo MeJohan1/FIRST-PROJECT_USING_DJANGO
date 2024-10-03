@@ -1,0 +1,27 @@
+
+<!--main.html-->
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%  static 'css/maincss.css'%}">
+    <title></title>
+</head>
+<body>
+    <img class = "logo" src="{% static "images/logo.jpg" %}" alt="welcome to school inventory" width="500" height="600">
+{# Here every page will have their unique materials #}
+    {% block content %}
+    {% if messages %}
+    {% for message in messages %}
+        <p><strong>{{ message.tag }}</strong> {{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+    {% endblock content%}
+
+</body>
+</html>

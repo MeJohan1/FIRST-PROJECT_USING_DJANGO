@@ -1,0 +1,61 @@
+/* home.css */
+
+/* Created by Ali Shahid */
+
+
+.dashboard-header {
+    display: flex;
+    flex-direction: column; /* Change to column to stack title and logout button vertically */
+    align-items: flex-start; /* Align to the start (left side) */
+    padding: 50px;
+    background-color: #005a9c;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    margin-bottom: 10px; /* Added margin to push log out button down */
+    font-size: 1.8em;
+}
+
+.logout-link {
+    align-self: flex-end; /* Align the log out button to the end (right side) */
+    background-color: #f2f2f2;
+    color: #005a9c;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: auto; /* Adds space above, pushing it to the bottom */
+}
+
+.dashboard-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dashboard-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-item {
+    background-color: #e7f1ff;
+    color: #005a9c;
+    padding: 15px 30px;
+    margin: 10px 0;
+    width: 80%; /* You can adjust this as needed */
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.nav-item:hover {
+    background-color: #c8e0f4;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);

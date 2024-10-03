@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+
+<!-- Created by Johan Ahmed Chowdhury -->
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<div class="login-container">
+    <h1>Admin Login</h1>
+    <form method="post"class="login-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="login-button" value="Login">
+    </form>
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+</div>
+{% endblock %}

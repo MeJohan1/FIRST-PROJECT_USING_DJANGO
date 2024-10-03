@@ -1,0 +1,65 @@
+.navbar {
+    background-color: #333; /* Dark background for the navbar */
+    overflow: hidden;
+    margin: 30px auto;
+    margin-top: 90px auto;
+
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin-top: 90px auto;
+}
+
+.nav-logo {
+    width: 120px;
+    height: auto;
+    background-image: url('{% static "path/to/your/logo.png" %}');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.nav-items a {
+    color: #f2f2f2;
+    padding: 16px 20px;/
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-items a:hover {
+    color: #ddd;
+    background-color: #444;
+}
+
+.btn {
+    background-color: #0563af;
+    color: white;
+    border: none;
+    padding: 16px 20px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0a7bcc;
+}
+/* Logo should be outside the main content and on the right side corner */
+.logo {
+    position: right;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    height: auto;
+    z-index: 10; /* Keeps the logo on top */
+  }
+@media screen and (max-width: 768px) {
+    .logo {
+      width: 80px; 
+    }
+  }

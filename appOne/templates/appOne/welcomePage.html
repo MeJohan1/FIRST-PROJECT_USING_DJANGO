@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Created by Johan Ahmed Chowdhury -->
+
+<link rel="stylesheet" href="{% static 'css/welcomepagecss.css' %}">
+
+<div class="welcomepage-wrapper">
+    <div class="welcomepage-left">
+        <div class="welcome-overlay">
+            <h1 class="welcome-message">Welcome to School Inventory</h1>
+        </div>
+    </div>
+    <div class="welcomepage-right">
+        <a href="{% url 'login' %}" class="button">USER</a>
+        <a href="{% url 'custom_admin_login' %}" class="button">ADMIN</a>
+        <div class="account-contact-links">
+        <p>Don't have an account? <a href="{% url 'register' %}">Click here</a></p>
+        <p>Do you need any help? <a href="{% url 'Wel_contact_us' %}">Contact us!</a></p>
+    </div>
+</div>
+</div>
+
+{% endblock %}

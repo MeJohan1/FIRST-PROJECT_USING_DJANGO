@@ -1,0 +1,64 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+
+<!-- Created by Mahathir Saad Islam front-end functionality-->
+<!-- Created by Johan Ahmed Chowdhury back-end functionality mostly-->
+
+<link rel="stylesheet" href="{% static 'css/top-panel.css' %}">
+<script src="{% static 'js/top-panel.js' %}" type="text/javascript"></script>
+{% include 'appOne/top-panel.html' %}
+
+<div class="flex-container">
+  <div class="sidebar">
+{% include 'appOne/sidebar.html' %}
+</div>
+
+<link rel="stylesheet" href="{% static 'css/user_orders.css' %}">
+<div class="container">
+  <h1>My Reservations</h1>
+  <table>
+      <thead>
+          <tr>
+              <th>Reservation ID</th>
+              <th>Equipment</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Days Left</th>
+              <th>Status</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for reservation in reservations %}
+          <tr style="{% if reservation.is_overdue %}color: red;{% endif %}">
+              <td>{{ reservation.id }}</td>
+              <td>{{ reservation.equipment.device_name }}</td>
+              <td>{{ reservation.booking_start_date|date:"Y-m-d H:i" }}</td>
+              <td>{{ reservation.booking_end_date|date:"Y-m-d H:i" }}</td>
+              <td>
+                  {% if reservation.is_overdue %}
+                      Overdue
+                  {% else %}
+                      {{ reservation.days_left }} day{{ reservation.days_left|pluralize }}
+                  {% endif %}
+              </td>
+              <td>{{ reservation.get_status_display }}</td>
+              <td>
+                  {% if not reservation.is_overdue and reservation.status != 'approved' or not reservation.status %}
+                  <form method="post" action="{% url 'cancel_reservation' reservation.id %}">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-danger">Cancel</button>
+                  </form>
+                  {% endif %}
+              </td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="7">No reservations found.</td></tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
+</div>
+{% endblock %}

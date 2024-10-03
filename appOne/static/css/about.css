@@ -1,0 +1,39 @@
+body {
+    background-color: beige;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-decoration: underline;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.column {
+    flex-basis: calc(100% / 3 - 40px);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+
+
+.column p {
+    margin-top: 10px;
+}

@@ -1,0 +1,82 @@
+/*johan created*/
+.welcomepage-wrapper {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.welcomepage-left {
+  flex: 1;
+  background: url('../images/frontpage.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+.welcome-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.welcome-message {
+  font-size: 100px;
+  text-align: center;
+  color: #000;
+  margin: 0;
+}
+
+.welcomepage-right {
+  flex-basis: 40%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+  background-color: #ffffff;
+  color: #007bff;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+  border: 2px solid #007bff;
+  border-radius: 30px;
+  text-align: center;
+  display: block;
+  width: auto;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.5);
+}
+
+.account-contact-links {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.account-contact-links a {
+  color: #0066CC;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #0066CC;
+  border-radius: 5px; /* Rounded corners for the links */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.account-contact-links a:hover {
+  background-color: #0066CC; /* Change background on hover */
+  color: #fff;
+}
+
+.account-contact-links p + p {
+  margin-top: 10px;
+}

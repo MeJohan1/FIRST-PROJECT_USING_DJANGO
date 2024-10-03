@@ -1,0 +1,59 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+<!-- Created by Johan Ahmed Chowdhury -->
+<!--designing support: Sharo--->
+
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<link rel="stylesheet" href="{% static 'css/report_page.css' %}">
+{% include 'appOne/sidebar.html' %}
+
+
+<div class="main">
+<div class="container">
+    <h1>Admin Reports</h1>
+
+    <table>
+        <caption>Inventory Report</caption>
+        <tr>
+            <th>Total inventory count</th>
+        </tr>
+        <tr>
+            <td>{{ inventory_count }}</td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>Overdue Equipment</caption>
+        <tr>
+            <th>Overdue equipment count</th>
+        </tr>
+        <tr>
+            <td>{{ overdue_count }}</td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>Inventory By Category</caption>
+        <tr>
+            <th>Category</th>
+            <th>Count</th>
+        </tr>
+        {% if equipment_by_category %}
+            {% for category in equipment_by_category %}
+                <tr>
+                    <td>{{ category.type_of_device }}</td>
+                    <td>{{ category.count }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="2">No data available</td>
+            </tr>
+        {% endif %}
+    </table>
+
+</div>
+</div>
+{% endblock %}

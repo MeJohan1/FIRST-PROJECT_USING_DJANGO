@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<!-- Created by Johan Ahmed Chowdhury -->
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<div class="login-container">
+    <h2>User Login Here</h2>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{% url 'homepage' %}">
+        <button type="submit" class="login-button">Login</button>
+    </form>
+</div>
+
+{% endblock content %}

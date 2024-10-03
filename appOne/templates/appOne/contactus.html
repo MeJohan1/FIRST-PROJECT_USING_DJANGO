@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Created by Arantxa Cajas Lincango -->
+{% include 'appOne/sidebar.html'%}
+
+<link rel="stylesheet" href="{%  static 'css/contact.css' %}">
+
+
+<div class ="container">
+    <form>
+        <h1> Contact Us Form</h1>
+        <input type="text" id="firstName" placeholder="First Name :" required>
+        <input type="text" id="lastName" placeholder="Last Name :" required>
+        <input type="email" id="email" placeholder="Email:" required>
+        <input type="text" id="mobile" placeholder="mobile:" required>
+        <h4>Type Messages Here..</h4>
+        <textarea required></textarea>
+        <input type="submit" value="Send" id="button" />
+    </form>
+
+
+
+
+
+</div>
+
+
+
+{% endblock content%}

@@ -1,0 +1,102 @@
+.main-content {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 200px;
+    color: #333;
+    max-width: 1200px;
+    padding-top: 70px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+h1,
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+}
+
+time {
+    float: right;
+    color: #777;
+}
+
+
+.btn-approve,
+.btn-reject {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-approve {
+    background-color: green;
+    color: white;
+}
+
+.btn-approve:hover {
+    background-color: darkgreen;
+}
+
+.btn-reject {
+    background-color: red;
+    color: white;
+}
+
+.btn-reject:hover {
+    background-color: darkred;
+}
+
+.close {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f44336;
+}
+
+.reservation-id {
+    font-weight: bold;
+}
+
+.start-date,
+.end-date {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+
+.status {
+    font-style: italic;
+}
+
+.user {
+    font-family: 'Courier New', monospace;
+}

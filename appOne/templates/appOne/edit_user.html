@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Created by Leandro Felix and support by Johan Ahmed Chowdhury-->
+
+{% include 'appOne/sidebar.html' %}
+<link rel="stylesheet" href="{% static 'css/add_user.css' %}">
+
+<h2>Edit User</h2>
+
+<div class="container">
+    <h1>Edit User</h1>
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Update User</button>
+        </form>
+    </div>
+
+{% endblock %}

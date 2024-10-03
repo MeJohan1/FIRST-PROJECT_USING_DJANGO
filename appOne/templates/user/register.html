@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+<!-- Created by Mahathir Saad Islam -->
+
+<div class="form-container">
+    <h2 class="form-title">Register</h2>
+    <form method="post" action="{% url 'register' %}" class="styled-form">  
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="form-field">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                    <small class="help-text">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                    <p class="error-message">{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="form-button">Sign up</button>
+    </form>
+    <p class="login-link">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+</div>
+{% endblock content %}

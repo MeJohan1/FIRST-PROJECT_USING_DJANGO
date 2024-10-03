@@ -1,0 +1,25 @@
+/*maincss.css*/
+
+body{
+    background-color: #fff9e5;
+    font-family: Arial, sans-serif;
+}
+
+
+.logo {
+   position: fixed;
+   right: 20px;
+   top: 20px;
+   width: 80px;
+   height: auto;
+   z-index: 1010;  /* Higher z-index to ensure it's on top */
+   border-radius: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 60px;
+    top: 10px;
+    right: 10px;
+  }
+}

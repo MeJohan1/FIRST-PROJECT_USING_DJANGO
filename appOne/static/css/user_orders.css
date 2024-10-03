@@ -1,0 +1,62 @@
+.body {
+  margin: 0;
+  display: flex; /* Ensures flex layout for the entire viewport */
+  height: 100vh; 
+}
+
+.sidebar {
+  width: 300px; /* Adjust according to your sidebar's width */
+  /* Additional styling for the sidebar */
+}
+
+.container {
+  flex-grow: 1; /* Takes up remaining space */
+  display: flex; /* Makes this container a flex container */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  text-align: center;
+  margin-left: 20px; /* Ensures a gap between the sidebar and the container */
+  overflow: hidden; /* Prevents content from spilling out */
+  margin-top: 400px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+table {
+  width: auto; /* Allows the table to size according to its content */
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #dddddd;
+}
+
+tbody tr:hover {
+  background-color: #f3f3f3;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}

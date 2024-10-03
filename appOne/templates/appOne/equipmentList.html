@@ -1,0 +1,95 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+<!--Created by Johan Ahmed Chowdhury-->
+
+<link rel="stylesheet" href="{% static 'css/equipmentList.css' %}">
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<link rel="stylesheet" href="{% static 'css/top-panel.css' %}">
+<script src="{% static 'js/top-panel.js' %}" type="text/javascript"></script>
+
+{% include 'appOne/sidebar.html' %}
+{% include 'appOne/top-panel.html' %}
+
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="header-actions">
+        <h1>EQUIPMENTs LIST</h1>
+        <div class="search-filter-sort">
+            <!-- Existing Search Form -->
+            <form action="{% url 'equipment_list' %}" method="get" class="search-form">
+                <input type="text" name="search_term" id="searchEquipment" placeholder="Search for equipments..." value="{{ request.GET.search_term }}">
+                <button type="submit">Search</button>
+            </form>
+
+            {% if request.user.is_staff %}
+                <a class="action-button" href="{% url 'equipment_add' %}">Add Equipment</a>
+            {% endif %}
+        </div>
+
+            <!-- Filter and Sort Form -->
+            <form action="{% url 'equipment_list' %}" method="get" class="filter-sort-form">
+                <!-- Include search term in filter/sort to preserve search across filters/sorts -->
+                <input type="hidden" name="search_term" value="{{ request.GET.search_term }}">
+
+                <!-- Onsite Filter -->
+                <select name="onsite">
+                    <option value="">Select Onsite/Offsite</option>
+                    <option value="True">Onsite</option>
+                    <option value="False">Offsite</option>
+                </select>
+
+                <!-- Type of Device Filter -->
+                <select name="type_of_device">
+                    <option value="">Select Type</option>
+                    <option value="Camera/Sensors">Camera/Sensors</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="PC Peripherals">PC Peripherals</option>
+                    <option value="PC/Laptop">PC/Laptop</option>
+                    <option value="Phones/ Tablet">Phones/ Tablet</option>
+                    <option value="Tripod">Tripod</option>
+                    <option value="VR Controller">VR Controller</option>
+                    <option value="VR Headset">VR Headset</option>
+                    <option value="Other">Other</option>
+                    <!-- Add other types as needed -->
+                </select>
+
+                <!-- Sorting -->
+                <select name="sort_by">
+                    <option value="">Sort By</option>
+                    <option value="a_to_z">A to Z</option>
+                    <option value="z_to_a">Z to A</option>
+                </select>
+
+                <!-- Apply Button -->
+                <button type="submit">Apply</button>
+            </form>
+
+    </div>
+
+    <!-- List of equipment -->
+    <div class="equipment-container">
+      {% for equipment in equipment_list %}
+            <div class="equipment-item">
+                <div class="equipment-image">
+                  <img src="{{ equipment.image.url }}" alt="{{ equipment.device_name }}">
+            </div>
+            <div class="equipment-details">
+                <h2>{{ equipment.device_name }}</h2>
+                <p>ID: {{ equipment.id }}</p>
+                </div>
+                <div class="equipment-actions">
+                    {% if request.user.is_staff %}
+                        <a class="edit-button" href="{% url 'equipment_edit' equipment.id %}">Edit</a>
+                    {% else %}
+                        <a class="view-button" href="{% url 'equipment_detail' equipment.id %}">View Details</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

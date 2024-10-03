@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Created by ALi Shahed -->
+
+{% include 'appOne/sidebar.html' %}
+{% include 'appOne/top-panel.html' %}
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+
+<<div class="main-container">
+
+</div>
+<div class="account-container">
+    <div class="account-header">
+        <h1>{{ user.get_full_name|default:user.username }}</h1>
+        <div>
+            <span class="account-type">{% if is_admin %}ADMIN{% else %}USER{% endif %} ACCOUNT PAGE</span>
+            {% if not is_admin %}
+
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="account-details">
+        <h2>Personal Information</h2>
+        {% if not is_admin %}
+            <p><strong>ID:</strong> {{ person.id }}</p>
+            <p><strong>Name:</strong> {{ person.name }}</p>
+            <p><strong>Surname:</strong> {{ person.surname }}</p>
+            <p><strong>Date of Birth:</strong> {{ person.date_of_birth|date:"Y-m-d" }}</p>
+            <p><strong>Email:</strong> {{ person.email }}</p>
+            <p><strong>Phone Number:</strong> {{ person.phone_number }}</p>
+        {% else %}
+            <p><strong>ID:</strong> {{ user.id }}</p>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% load static %}
+
+<!-- Created by Johan Ahmed Chowdhury -->
+<!--provided feedback from tem members--->
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<script src="{% static 'js/dropdown.js' %}"></script>
+<div class="sidebar">
+    <div class="user-profile">
+        <img src="{% static 'images/avatar.jpg' %}" alt="User Icon">
+        <p>{{ request.user.username }}</p>
+    </div>
+
+    <div class="spacer" style="height: 48px;"></div>
+
+    <div class="nav-links">
+        {% if request.user.is_staff %}
+            <a href="{% url 'homepage' %}" class="{% if request.resolver_match.url_name == 'admin_home' %}active{% endif %}">Home</a>
+        {% else %}
+            <a href="{% url 'homepage' %}" class="{% if request.resolver_match.url_name == 'user_home' %}active{% endif %}">Home</a>
+        {% endif %}
+
+        <a href="{% url 'equipment_list' %}" class="{% if request.resolver_match.url_name == 'equipment_list' %}active{% endif %}">Equipment List</a>
+
+        {% if request.user.is_staff %}
+            <a href="{% url 'management' %}" class="{% if request.resolver_match.url_name == 'management' %}active{% endif %}">Management</a>
+            <a href="{% url 'generate_report' %}" class="{% if request.resolver_match.url_name == 'generate_report' %}active{% endif %}">Reports</a>
+            <a href="{% url 'manage_booking' %}" class="{% if request.resolver_match.url_name == 'manage_booking' %}active{% endif %}">Manage Booking</a>
+        {% else %}
+            <div class="dropdown">
+                <a href="#">Help/Contact</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'help' %}" class="{% if request.resolver_match.url_name == 'help' %}active{% endif %}">Help</a>
+                    <a href="{% url 'contact_us' %}" class="{% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}">Contact Us</a>
+                </div>
+            </div>
+             <a href="{% url 'user_orders' %}" class="{% if request.resolver_match.url_name == 'user_orders' %}active{% endif %}">My Reservations</a>
+        {% endif %}
+
+        <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About Us</a>
+        <a href="{% url 'logout' %}" class="btn-logout">Log Out</a>
+    </div>
+</div>

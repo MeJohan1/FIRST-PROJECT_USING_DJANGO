@@ -1,0 +1,42 @@
+/* top-panel.css */
+
+/* Added by Saad */
+body{
+
+  font-family: Arial, sans-serif;
+}
+
+
+/* Created by Johan */
+
+.top-panel {
+    background: #f2f2f2;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 10px 0;
+    position: fixed;
+    top: 120px;
+    left: 300px;
+    right: 0;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.top-panel .container {
+    width: calc(100% - 300px); 
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-panel .top-panel-links a {
+    padding: 5px 15px;
+    margin-left: 10px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.top-panel .top-panel-links a.view-cart-link {
+    background: #28a745;
+}

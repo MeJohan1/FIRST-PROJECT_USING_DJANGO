@@ -1,0 +1,57 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+<!-- Created by Sharo -->
+
+<link href="{% static 'css/equipment_details.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<link rel="stylesheet" href="{% static 'css/top-panel.css' %}">
+<script src="{% static 'js/top-panel.js' %}" type="text/javascript"></script>
+
+{% include 'appOne/sidebar.html' %}
+{% include 'appOne/top-panel.html' %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="equipment-detail-container">
+    <h1>{{ equipment.device_name }}</h1>
+    <img src="{{ equipment.image.url }}" alt="{{ equipment.device_name }}" style="width: 300px;">
+    <p><strong>ID:</strong> {{ equipment.id }}</p>
+    <p><strong>Type:</strong> {{ equipment.type_of_device }}</p>
+    <p><strong>Location:</strong> {{ equipment.location }}</p>
+    <p><strong>Availability:</strong> {{ equipment.availability }}</p>
+
+    {% if not request.user.is_staff %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.booking_start_date.label_tag }}
+            {{ form.booking_start_date }}
+            {% for error in form.booking_start_date.errors %}
+                <div class="error" style="color: red;">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.booking_end_date.label_tag }}
+            {{ form.booking_end_date }}
+            {% for error in form.booking_end_date.errors %}
+                <div class="error" style="color: red;">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.purpose.label_tag }}
+            {{ form.purpose }}
+            {% for error in form.purpose.errors %}
+                <div class="error" style="color: red;">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <button type="submit" name="add_to_cart" class="btn btn-info">Add to the Cart</button>
+    </form>
+    {% endif %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,92 @@
+/* equipmentdetails.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.equipment-detail-container {
+  max-width: 600px;
+  width: 90%;
+  margin: 2% auto;
+  background: #fff;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 200px;
+}
+
+.equipment-detail-container h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.equipment-detail-container img {
+    display: block;
+    margin: 10px auto 20px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.equipment-detail-container p {
+  color: #444;
+  line-height: 1.8;
+  margin: 5px 0;
+  text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-info {
+    background-color: #5bc0de;
+    color: white;
+}
+
+.btn-success {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+@media only screen and (max-width: 600px) {
+    .equipment-detail-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .equipment-detail-container h1 {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,97 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+<!-- Created by saad -->
+
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<link rel="stylesheet" href="{% static 'css/top-panel.css' %}">
+<script src="{% static 'js/top-panel.js' %}" type="text/javascript"></script>
+
+<!-- Include the navigation sidebar -->
+{% include 'appOne/sidebar.html' %}
+
+{% include 'appOne/top-panel.html' %}
+
+<div class="cart-container">
+    <h1>My Cart</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Purpose</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ item.equipment.device_name }}</td>
+                <td>{{ item.start_date }}</td>
+                <td>{{ item.end_date }}</td>
+                <td>{{ item.purpose }}</td>
+                <td>{{ item.equipment.location }}</td>
+                <td>
+                    <form method="post" action="{% url 'remove_from_cart' item.equipment.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Remove" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="6">Your cart is empty.</td></tr>
+            {% endfor %}
+        </tbody>
+
+
+    </table>
+
+    {% if cart_items %}
+    <div class="text-right">
+      <form method="post" action="{% url 'place_booking' %}">
+        {% csrf_token %}
+        <input type="submit" value="Place Booking" class="btn btn-primary">
+      </form>
+    </div>
+    {% endif %}
+
+    <h2>Past Bookings</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Book Again</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for booking in past_reservations %}
+          <tr>
+            <td>{{ booking.equipment.device_name }}</td>
+            <td>{{ booking.booking_start_date }}</td>
+            <td>{{ booking.booking_end_date }}</td>
+            <td>
+              {% if booking.equipment.id %}
+              <a href="{% url 'equipment_detail' booking.equipment.id %}" class="btn btn-primary">Book Again</a>
+              {% else %}
+              Equipment details unavailable
+              {% endif %}
+            </td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="4">No past bookings found.</td></tr>
+{% endfor %}
+
+        </tbody>
+    </table>
+
+
+</div>
+
+{% endblock content %}

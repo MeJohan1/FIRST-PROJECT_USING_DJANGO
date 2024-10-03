@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Created by Ali Shahed -->
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<div class="dashboard-header">
+    <h1>{% if is_admin %}ADMIN HOME PAGE{% else %}USER'S HOME PAGE{% endif %}</h1>
+    <a href="{% url 'logout' %}" class="logout-link">Log out</a>
+</div>
+
+<div class="dashboard-content">
+    <div class="dashboard-navigation">
+        <!-- Visible to all logged-in users -->
+        <a href="{% url 'my_account' %}" class="nav-item">MY ACCOUNT PAGE</a>
+        <a href="{% url 'equipment_list' %}" class="nav-item">EQUIPMENT'S LISTS PAGE</a>
+        <a href="{% url 'user_orders' %}" class="nav-item">MY RESERVATION</a>
+        <a href="{% url 'about' %}" class="nav-item">ABOUT US</a>
+
+        {% if is_admin %}
+            <!-- Additional links for admin users only -->
+            <a href="{% url 'management' %}" class="nav-item">MANAGEMENT PAGE</a>
+            <a href="{% url 'generate_report' %}" class="nav-item">REPORT PAGE</a>
+            <a href="{% url 'manage_booking' %}" class="nav-item">MANAGE BOOKINGS</a>
+
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}
